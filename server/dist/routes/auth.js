@@ -26,8 +26,8 @@ const router = express_1.default.Router();
 router.post('/signup', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const parsedInput = signupInput.safeParse(req.body);
     if (!parsedInput.success) {
-        res.status(411).json({
-            error: parsedInput.error
+        res.json({
+            message: 'Invalid input'
         });
         return;
     }
@@ -48,8 +48,8 @@ router.post('/signup', (req, res) => __awaiter(void 0, void 0, void 0, function*
 router.post('/login', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const parsedInput = signupInput.safeParse(req.body);
     if (!parsedInput.success) {
-        res.status(411).json({
-            error: parsedInput.error
+        res.json({
+            message: 'Invalid input'
         });
         return;
     }
@@ -61,7 +61,7 @@ router.post('/login', (req, res) => __awaiter(void 0, void 0, void 0, function* 
         res.json({ message: 'Logged in successfully', token });
     }
     else {
-        res.status(403).json({ message: 'Invalid username or password' });
+        res.json({ message: 'Invalid username or password' });
     }
 }));
 router.get('/me', middleware_1.authenticateJwt, (req, res) => __awaiter(void 0, void 0, void 0, function* () {

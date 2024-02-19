@@ -148,19 +148,26 @@ function Signin() {
                     "Content-type": "application/json"
                 }
             }); 
-            const data = res.data;
-            if (data.message === 'Invalid username or password'){
-                window.alert('Invalid username or password'); 
-                console.log("Alerttttt"); 
-            }
-            console.log(data); 
+
+            if (res.data.message === 'Invalid username or password'){
+
+              window.alert('Invalid username or password');
+
+            } else if (res.data.message === 'Invalid input') {
+
+              window.alert('Invalid username or password'); 
+
+            } else {
                         
-            localStorage.setItem("token", data.token);
-            setUser({ 
-                isLoading: false, 
-                userEmail: email
-            })
-            navigate("/"); 
+              localStorage.setItem("token", res.data.token);
+              setUser({ 
+                  isLoading: false, 
+                  userEmail: email
+              })
+              navigate("/"); 
+
+            }
+
         }}
         type="button">
         Login

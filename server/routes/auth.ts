@@ -16,8 +16,8 @@ router.post('/signup', async (req, res) => {
     const parsedInput = signupInput.safeParse(req.body); 
 
     if(!parsedInput.success) {
-        res.status(411).json({ 
-            error: parsedInput.error 
+        res.json({ 
+            message: 'Invalid input'
         }); 
         return; 
     }
@@ -41,10 +41,10 @@ router.post('/login', async (req, res) => {
     const parsedInput = signupInput.safeParse(req.body); 
 
     if(!parsedInput.success) { 
-        res.status(411).json({ 
-            error: parsedInput.error 
+        res.json({ 
+            message: 'Invalid input'
         }); 
-        return;  
+        return; 
     }
 
     const username = parsedInput.data.username; 
@@ -55,7 +55,7 @@ router.post('/login', async (req, res) => {
         const token = jwt.sign({ id: user._id}, SECRET, {expiresIn: '1h'}); 
         res.json({ message: 'Logged in successfully', token}); 
     } else { 
-        res.status(403).json({ message: 'Invalid username or password' }); 
+        res.json({ message: 'Invalid username or password' }); 
     }
 }); 
 
