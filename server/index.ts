@@ -23,17 +23,3 @@ app.listen(PORT, () => {
     console.log(`Example app is listening at http://localhost:${PORT}`)
 }); 
 
-// show collections / show tables => shows all the models  
-// db.getCollection('admins').find();  => specifically select the model and .query 
-
-// db.getCollection('users).find(); => specifically select the model and .query 
-
-// db.getCollection('todos').find() => specifically select the model and .query 
-
-// db.getCollection('courses').find() => 
-
-// db.getCollection('sessions').find(); => specifically selecct the model and .query 
-
-// "tsc -b && pm2 start dist/index.js"
-
-// cd ../client && npm run build && rm -rf ../server/public && mkdir -p ../server/public && mv ./dist/* ../server/public && cd ../server && tsc -b && node dist/index.js

@@ -13,37 +13,15 @@ function Appbar() {
     const userEmail = useRecoilValue(userEmailState); 
     const setUser = useSetRecoilState(userState); 
 
-    // useEffect(() => {
-    //     function callback2(data: any) { 
-    //         if (data.username) {
-    //             setUserEmail(data.username)
-    //             console.log(data.username); 
-                
-    //         }
-    //     }
-    //     function callback1(res: any) { 
-    //         res.json().then(callback2)
-    //     }
-    //     console.log("token - " + localStorage.getItem("token"));
-    //     fetch("http://localhost:4000/auth/me", { 
-    //         method: "GET",
-    //         headers: {
-    //             "Authorization": "Bearer " + localStorage.getItem("token")
-    //         }
-    //     }).then(callback1)
-    // }, []);
-
     if(userLoading) { 
         return <></> 
     }
 
-
-
     if (userEmail){
-        return <div className="flex justify-center h-16 px-10 shadow items-center mt-10">
+        return <div className="flex justify-between sm:justify-center h-16 px-10 shadow items-center mt-10">
 
 
-            <div className="flex items-center space-x-8 mr-24">
+            <div className="flex items-center space-x-8 sm:ml-24">
                 <h1 className="text-xl lg:text-2xl font-bold cursor-pointer" style={{fontFamily: 'Cookie', fontSize: "50px", color: 'white'}}
                 onClick={() => {
                     navigate("/")
@@ -52,7 +30,7 @@ function Appbar() {
                 <div className="hidden md:flex justify-around space-x-4"></div>
             </div>
 
-            <div className="flex space-x-4 items-center ml-24">
+            <div className="flex space-x-4 items-center sm:mr-24">
                 <a 
                     href="#" 
                     className="bg-green-600 px-4 py-4 rounded-xl text-white hover:bg-green-800 text-sm" 
@@ -71,10 +49,10 @@ function Appbar() {
 
         </div>
     } else {
-        return <div className="flex justify-center h-16 px-10 shadow items-center mt-10">
+        return <div className="flex justify-between sm:justify-center h-16 sm:px-10 shadow items-center mt-10 w:9/12">
 
 
-            <div className="flex items-center space-x-8 mr-20">
+            <div className="flex items-center ml-3 sm:space-x-8">
                 <h1 className="text-xl lg:text-2xl font-bold cursor-pointer" style={{fontFamily: 'Cookie', fontSize: "50px", color: 'white'}} 
                 onClick={() => {
                     navigate("/")
@@ -83,7 +61,7 @@ function Appbar() {
             </div>
 
 
-            <div className="flex space-x-4 items-center ml-20">
+            <div className="flex space-x-4 items-center mr-3 sm:space-x-4">
 
                 <a className="text-gray-800 text-sm cursor-pointer" 
                 style={{fontFamily: 'Cookie', fontSize: "35px", color: 'white'}}
